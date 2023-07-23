@@ -16,32 +16,32 @@ public class Moves {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Moves moves = (Moves) o;
-        return initialPower == moves.initialPower && changeDirection == moves.changeDirection && Objects.equals(gMan, moves.gMan);
+        return initialPower == moves.initialPower && changeDirection == moves.changeDirection && Objects.equals(position, moves.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(initialPower, changeDirection, gMan);
+        return Objects.hash(initialPower, changeDirection, position);
     }
 
     public void setInitialPower(int initialPower) {
         this.initialPower = initialPower;
     }
 
-    public Moves(int initialPower, boolean changeDirection, GMan gMan) {
+    public Moves(int initialPower, boolean changeDirection, Position position) {
         this.initialPower = initialPower;
         this.changeDirection = changeDirection;
-        this.gMan = gMan;
+        this.position = position;
     }
 
     private boolean changeDirection = false;
 
 
-    GMan gMan ;
+    Position position;
     public boolean isChangeDirection(Direction direction){
         //return true if change in direction is there
         //return false if no change in direction
-        if(!direction.equals(gMan.getDirection())){
+        if(!direction.equals(position.getDirection())){
             return false;
         }
         return true;
